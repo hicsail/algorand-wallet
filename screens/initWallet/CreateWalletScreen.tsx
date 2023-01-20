@@ -27,7 +27,6 @@ export default function CreateWalletView({ navigation }) {
 
     return (
       <View style={ styles.container }>
-        <Text style={styles.header}>Seed Phrase</Text>
         <Text style={styles.instructions}>Save your seed phrase in a secure location. Never share your seed phrase with anyone.</Text>
         <View>
           <FlatList
