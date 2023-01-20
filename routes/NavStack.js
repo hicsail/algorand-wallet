@@ -1,13 +1,13 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
-import Home from '../screens/HomeScreen';
-import CreateWallet from '../screens/CreateWalletScreen';
-import ImportWallet from '../screens/ImportWalletScreen';
+import InitWallet from '../screens/initWallet/InitWalletScreen';
+import CreateWallet from '../screens/initWallet/CreateWalletScreen';
+import ImportWallet from '../screens/initWallet/ImportWalletScreen';
 
 const screens = {
     Home: {
-        screen: Home,
+        screen: InitWallet,
     },
     CreateWallet: {
         screen: CreateWallet

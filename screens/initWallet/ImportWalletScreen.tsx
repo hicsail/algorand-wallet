@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Button from '../components/home/Button';
+import Button from '../../components/home/Button';
 
 export default function ImportWalletView({ navigation }) {
     const pressHandler = () => {
