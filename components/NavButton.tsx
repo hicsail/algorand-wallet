@@ -14,7 +14,6 @@ export default function NavButton({ label, onPress }:{ label: string, onPress}) 
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    flex: 1,
     width: 160,
     height: 100,
     marginHorizontal: 20,

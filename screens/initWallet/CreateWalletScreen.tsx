@@ -3,23 +3,23 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import NavButton from '../../components/NavButton';
 
 const renderWord = ({ item }) => (
-  <Text style={styles.item}>{item.word}</Text>
+  <Text style={styles.item}>{item.id}. {item.word}</Text>
 );
 
 export default function CreateWalletView({ navigation }) {
     const seedPhrase = [
-      { word: 'word1', id: '1'},
-      { word: 'word2', id: '2'},
-      { word: 'word3', id: '3'},
-      { word: 'word4', id: '4'},
-      { word: 'word5', id: '5'},
-      { word: 'word6', id: '6'},
-      { word: 'word7', id: '7'},
-      { word: 'word8', id: '8'},
-      { word: 'word9', id: '9'},
-      { word: 'word10', id: '10'},
-      { word: 'word11', id: '11'},
-      { word: 'word12', id: '12'}
+      { word: 'wordword', id: '1'},
+      { word: 'wordword', id: '2'},
+      { word: 'wordword', id: '3'},
+      { word: 'wordword', id: '4'},
+      { word: 'wordword', id: '5'},
+      { word: 'wordword', id: '6'},
+      { word: 'wordword', id: '7'},
+      { word: 'wordword', id: '8'},
+      { word: 'wordword', id: '9'},
+      { word: 'wordword', id: '10'},
+      { word: 'wordword', id: '11'},
+      { word: 'wordword', id: '12'}
     ]
 
     const signInHandler = (view) => {
@@ -30,16 +30,14 @@ export default function CreateWalletView({ navigation }) {
       <View style={ styles.container }>
         <Text style={styles.header}>Seed Phrase</Text>
         <Text style={styles.instructions}>Save your seed phrase in a secure location. Never share your seed phrase with anyone.</Text>
-        <StatusBar style="auto" />
         <View>
           <FlatList
+            numColumns={2}
             keyExtractor={item => item.id}
             data={seedPhrase}
             renderItem={renderWord}
             style={styles.seedPhrase}/>
-        </View>
-        <NavButton label='Next' onPress={signInHandler}/>
-        <View style={styles.footerContainer}>
+          <NavButton label='Next' onPress={signInHandler}/>
         </View>
       </View>
     );
@@ -47,34 +45,34 @@ export default function CreateWalletView({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      backgroundColor: '#25292e',
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingTop: 100
+    flex: 1,
+    backgroundColor: '#25292e',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 100
   },
   header: {
     color: '#fff',
     fontSize: 18
   },
   seedPhrase: {
-    flex: 1
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    height: 50,
+    backgroundColor: '#1c1e24'
+
   },
   instructions: {
     marginTop: 5,
     color: '#fff',
-    paddingLeft: 30,
-    paddingRight: 30
+    width: 300,
   },
   item: {
     flex: 1,
     color: '#fff',
     fontSize: 18,
-    paddingTop: 12
-  },
-  footerContainer: {
-      flex: 1 / 3,
-      alignItems: 'center'
+    paddingTop: 12,
+    paddingRight: 25
   }
 });
   
