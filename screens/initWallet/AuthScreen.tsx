@@ -1,11 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function AuthView({ navigation }) {
     return (
       <View style={ styles.container }>
         <Text style={{ color: '#fff' }}>Hello Tractor Authentication</Text>
-        <StatusBar style="auto" />
         <View style={styles.footerContainer}>
         </View>
       </View>
