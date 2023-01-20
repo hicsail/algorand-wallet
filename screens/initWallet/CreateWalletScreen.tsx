@@ -35,7 +35,9 @@ export default function CreateWalletView({ navigation }) {
             data={seedPhrase}
             renderItem={renderWord}
             style={styles.seedPhrase}/>
-          <NavButton label='Next' onPress={signInHandler}/>
+          <View style={ styles.bottomContainer}>
+            <NavButton label='Next' onPress={signInHandler}/>
+          </View>
         </View>
       </View>
     );
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#25292e',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 100
+    paddingTop: 80
   },
   header: {
     color: '#fff',
@@ -55,15 +57,13 @@ const styles = StyleSheet.create({
   },
   seedPhrase: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    height: 50,
-    backgroundColor: '#1c1e24'
+    // backgroundColor: '#1c1e24'
 
   },
   instructions: {
     marginTop: 5,
     color: '#fff',
-    width: 300,
+    width: 300
   },
   item: {
     flex: 1,
@@ -71,6 +71,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingTop: 12,
     paddingRight: 25
+  },
+  bottomContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   }
 });
   
