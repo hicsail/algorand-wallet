@@ -17,10 +17,11 @@ export default function AuthView({ navigation }) {
           placeholderTextColor="#fff"
           onChangeText={(val) => setEmail(val)}/>
         <TextInput 
+          secureTextEntry
           style={styles.inputField}
           placeholder="Password"
           placeholderTextColor="#fff"
-          onChangeText={(val) => setEmail(val)}/>
+          onChangeText={(val) => setPassword(val)}/>
         <TouchableOpacity style={styles.submitButton} onPress={() => submitHandler()}>
           <Text style={styles.submitText}>Login</Text>
         </TouchableOpacity>
