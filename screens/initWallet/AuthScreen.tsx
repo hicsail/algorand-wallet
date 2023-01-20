@@ -1,22 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import NavButton from '../../components/NavButton';
 
-export default function InitView({ navigation }) {
-    const createWalletHandler = (view) => {
-        navigation.navigate('CreateWallet');
-    }
-
-    const importWalletHandler = () => {
-      navigation.navigate('ImportWallet');
-    }
- 
+export default function AuthView({ navigation }) {
     return (
       <View style={ styles.container }>
+        <Text style={{ color: '#fff' }}>Hello Tractor Authentication</Text>
         <StatusBar style="auto" />
         <View style={styles.footerContainer}>
-          <NavButton label='Create Wallet' onPress={createWalletHandler}/>
-          <NavButton label='Import Wallet' onPress={importWalletHandler}/>
         </View>
       </View>
     );

@@ -4,6 +4,7 @@ import { createAppContainer } from 'react-navigation';
 import InitWallet from '../screens/initWallet/InitWalletScreen';
 import CreateWallet from '../screens/initWallet/CreateWalletScreen';
 import ImportWallet from '../screens/initWallet/ImportWalletScreen';
+import AuthScreen from '../screens/initWallet/AuthScreen';
 
 const screens = {
     Home: {
@@ -14,6 +15,9 @@ const screens = {
     },
     ImportWallet: {
         screen: ImportWallet
+    },
+    AuthScreen: {
+        screen: AuthScreen
     }
 }
 
