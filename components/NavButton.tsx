@@ -1,25 +1,29 @@
 import React from 'react';
-import { StyleSheet, View, Pressable, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 
-export default function Button({ label, func }) {
+export default function NavButton({ label, onPress }:{ label: string, onPress}) {
   return (
     <View style={styles.buttonContainer}>
-      <Pressable style={styles.button} onPress={() => func()}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text style={styles.buttonLabel}>{label}</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: 320,
-    height: 68,
+    flex: 1,
+    width: 160,
+    height: 100,
     marginHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 3,
+    borderColor: '#fff',
+    borderWidth: 1,
+    marginBottom: 25
   },
   button: {
     borderRadius: 10,

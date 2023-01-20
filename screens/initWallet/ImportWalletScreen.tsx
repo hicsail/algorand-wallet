@@ -1,8 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Button from '../../components/home/Button';
-
 export default function ImportWalletView({ navigation }) {
     const pressHandler = () => {
         navigation.navigate('back');
@@ -19,16 +17,15 @@ export default function ImportWalletView({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-container: {
-    flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
-    // , flex: 1, alignItems: 'center', justifyContent: 'center'
-},
-footerContainer: {
-    flex: 1 / 3,
-    alignItems: 'center',
-}
+  container: {
+      flex: 1,
+      backgroundColor: '#25292e',
+      alignItems: 'center',
+      justifyContent: 'center'
+  },
+  footerContainer: {
+      flex: 1 / 3,
+      alignItems: 'center'
+  }
 });
   

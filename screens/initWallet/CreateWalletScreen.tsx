@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-
-import { useState } from 'react';
+import NavButton from '../../components/NavButton';
 
 const renderWord = ({ item }) => (
   <Text style={styles.item}>{item.word}</Text>
@@ -23,6 +22,10 @@ export default function CreateWalletView({ navigation }) {
       { word: 'word12', id: '12'}
     ]
 
+    const signInHandler = (view) => {
+      navigation.navigate('AuthScreen');
+    }
+
     return (
       <View style={ styles.container }>
         <Text style={styles.header}>Seed Phrase</Text>
@@ -35,6 +38,7 @@ export default function CreateWalletView({ navigation }) {
             renderItem={renderWord}
             style={styles.seedPhrase}/>
         </View>
+        <NavButton label='Next' onPress={signInHandler}/>
         <View style={styles.footerContainer}>
         </View>
       </View>
@@ -42,35 +46,35 @@ export default function CreateWalletView({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-container: {
+  container: {
+      flex: 1,
+      backgroundColor: '#25292e',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingTop: 100
+  },
+  header: {
+    color: '#fff',
+    fontSize: 18
+  },
+  seedPhrase: {
+    flex: 1
+  },
+  instructions: {
+    marginTop: 5,
+    color: '#fff',
+    paddingLeft: 30,
+    paddingRight: 30
+  },
+  item: {
     flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 100
-},
-header: {
-  color: '#fff',
-  fontSize: 18
-},
-seedPhrase: {
-  flex: 1
-},
-instructions: {
-  marginTop: 5,
-  color: '#fff',
-  paddingLeft: 30,
-  paddingRight: 30
-},
-item: {
-  flex: 1,
-  color: '#fff',
-  fontSize: 18,
-  paddingTop: 12
-},
-footerContainer: {
-    flex: 1 / 3,
-    alignItems: 'center',
-}
+    color: '#fff',
+    fontSize: 18,
+    paddingTop: 12
+  },
+  footerContainer: {
+      flex: 1 / 3,
+      alignItems: 'center'
+  }
 });
   
