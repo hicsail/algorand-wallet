@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
   },
   seedPhrase: {
     flexDirection: 'row',
-    // backgroundColor: '#1c1e24'
 
   },
   instructions: {

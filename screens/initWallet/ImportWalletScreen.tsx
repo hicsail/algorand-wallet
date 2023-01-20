@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function ImportWalletView({ navigation }) {
     const pressHandler = () => {
@@ -9,9 +9,10 @@ export default function ImportWalletView({ navigation }) {
     return (
       <View style={ styles.container }>
         <Text style={{ color: '#fff' }}>Algorand Mobile Wallet</Text>
-        <StatusBar style="auto" />
-        <View style={styles.footerContainer}>
-        </View>
+        <TextInput 
+          style={{ color: '#fff' }}
+          placeholder="word"
+          onChangeText={(val) => setName(val)}/>
       </View>
     );
 }
