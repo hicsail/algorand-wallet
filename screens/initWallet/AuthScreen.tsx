@@ -14,13 +14,13 @@ export default function AuthView({ navigation }) {
         <TextInput 
           style={styles.inputField}
           placeholder="Email"
-          placeholderTextColor="#fff"
+          placeholderTextColor="#000"
           onChangeText={(val) => setEmail(val)}/>
         <TextInput 
           secureTextEntry
           style={styles.inputField}
           placeholder="Password"
-          placeholderTextColor="#fff"
+          placeholderTextColor="#000"
           onChangeText={(val) => setPassword(val)}/>
         <TouchableOpacity style={styles.submitButton} onPress={() => submitHandler()}>
           <Text style={styles.submitText}>Login</Text>
@@ -32,7 +32,7 @@ export default function AuthView({ navigation }) {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      backgroundColor: '#25292e',
+      backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center'
   },
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     borderColor: '#adacac',
     width: '75%',
     height: 50,
-    color: '#fff',
+    color: '#000',
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 5,
@@ -51,13 +51,15 @@ const styles = StyleSheet.create({
     width: '75%',
     height: 50,
     borderRadius: 5,
-    backgroundColor: '#fff',
-    justifyContent: "center",alignItems: "center"
+    backgroundColor: '#000',
+    justifyContent: "center",
+    alignItems: "center"
   },
   submitText: {
     textAlignVertical: 'center',
     textAlign: 'center',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#fff'
   }
 });
   

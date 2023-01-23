@@ -32,7 +32,7 @@
     "androidNavigationBar": {
       "visible": false,
       "barStyle": "dark-content",
-      "backgroundColor": "#25292e"
+      "backgroundColor": "fff"
     }
   }
 }

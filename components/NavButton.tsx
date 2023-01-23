@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 3,
-    borderColor: '#fff',
+    borderColor: '#000',
     borderWidth: 1,
     marginBottom: 25
   },
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     paddingRight: 8,
   },
   buttonLabel: {
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
   },
 });

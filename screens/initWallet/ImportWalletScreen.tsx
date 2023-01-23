@@ -58,13 +58,13 @@ export default function ImportWalletView({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 80
   },
   header: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18
   },
   seedPhrase: {
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     marginTop: 5,
-    color: '#fff',
+    color: '#000',
     width: 300
   },
   inputRow: {
@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
   },
   rowId: {
     fontSize: 18,
-    color: '#fff'
+    color: '#000'
   },
   item: {
     flex: 1,
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     paddingTop: 12,
     paddingRight: 25,

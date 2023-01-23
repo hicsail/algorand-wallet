@@ -46,7 +46,7 @@ export default function CreateWalletView({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 80
@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
   },
   instructions: {
     marginTop: 5,
-    color: '#fff',
+    color: '#000',
     width: 300
   },
   item: {
     flex: 1,
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     paddingTop: 12,
     paddingRight: 25
