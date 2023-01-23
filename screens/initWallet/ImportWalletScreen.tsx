@@ -19,15 +19,18 @@ export default function ImportWalletView({ navigation }) {
     ]);
 
     const renderWord = ({ item }) => (
-      <TextInput 
-        style={styles.item}
-        onChangeText={(val) => {
-          let list = [...seedPhrase]
-          list[parseInt(item.id) - 1].word = val
-          setSeedPhrase(list)
-        }}>
-        {item.id}. {item.word}
-      </TextInput>
+      <View style={ styles.inputRow }>
+        <Text style={ styles.rowId }>{ parseInt(item.id) < 10 ? '   '+item.id+'.  ' : ' '+item.id+'.  ' }</Text>
+        <TextInput
+          style={styles.item}
+          onChangeText={(val) => {
+            let list = [...seedPhrase]
+            list[parseInt(item.id) - 1].word = val
+            setSeedPhrase(list)
+          }}>
+          {item.word}
+        </TextInput>
+      </View>
     );
     
     const signInHandler = (view) => {
@@ -72,6 +75,14 @@ const styles = StyleSheet.create({
     marginTop: 5,
     color: '#fff',
     width: 300
+  },
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end'
+  },
+  rowId: {
+    fontSize: 18,
+    color: '#fff'
   },
   item: {
     flex: 1,
