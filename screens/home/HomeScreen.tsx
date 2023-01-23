@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 
 export default function AuthView({ navigation }) {
+    const [balance, setBalance] = useState(0.0);
+
     return (
       <View style={ styles.container }>
-        <Text>Home Screen</Text>
+        <Text style={styles.balance}>$ { balance }</Text>
       </View>
     );
 }
@@ -15,6 +17,9 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center'
+  },
+  balance: {
+      fontSize: 42,
   }
 });
   
