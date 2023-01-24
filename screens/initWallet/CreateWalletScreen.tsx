@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import NavButton from '../../components/NavButton';
+const algosdk = require('algosdk');
 
 const renderWord = ({ item }) => (
   <Text style={styles.item}>{item.id}. {item.word}</Text>
@@ -20,6 +21,10 @@ export default function CreateWalletView({ navigation }) {
       { word: 'wordword', id: '11'},
       { word: 'wordword', id: '12'}
     ]
+
+    let account = algosdk.generateAccount();
+    let passphrase = algosdk.secretKeyToMnemonic(account.sk);
+    console.log(passphrase)
 
     const signInHandler = (view) => {
       navigation.navigate('AuthScreen');
