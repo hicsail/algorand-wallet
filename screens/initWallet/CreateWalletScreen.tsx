@@ -24,7 +24,6 @@ export default function CreateWalletView({ navigation }) {
 
     let account = algosdk.generateAccount();
     let passphrase = algosdk.secretKeyToMnemonic(account.sk);
-    console.log(passphrase)
 
     const signInHandler = (view) => {
       navigation.navigate('AuthScreen');
