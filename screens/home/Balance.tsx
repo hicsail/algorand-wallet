@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-import Balance from './Balance';
-import AssetList from './AssetList';
 
-export default function AuthView({ navigation }) {
+export default function AuthView() {
     const [balance, setBalance] = useState(0.0);
 
     return (
       <View style={ styles.container }>
-        <Balance/>
-        <AssetList/>
+        <Text style={styles.balance}>$ { balance }</Text>
       </View>
     );
 }
@@ -17,12 +14,10 @@ export default function AuthView({ navigation }) {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
+      backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#42f5ce',
-      paddingLeft: 30,
-      paddingRight: 30,
-      paddingTop: 50
+      width: '100%',
   },
   balance: {
       fontSize: 42,

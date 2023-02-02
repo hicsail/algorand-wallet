@@ -47,7 +47,7 @@ export default function ImportWalletView({ navigation }) {
             data={seedPhrase}
             renderItem={renderWord}
             style={styles.seedPhrase}/>
-          <View style={ styles.bottomContainer}>
+          <View style={styles.bottomContainer}>
             <NavButton label='Next' onPress={signInHandler}/>
           </View>
         </View>
