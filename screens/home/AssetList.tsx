@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { Text, StyleSheet, View, FlatList } from 'react-native';
+import { Text, StyleSheet, View, FlatList, Image } from 'react-native';
 
 export default function AuthView() {
     const [assetList, setAssetList] = useState([
-        { name: 'Algorand', amount: '0.00'},
-        { name: 'USDC', amount: '0.00'}
+        { ticker: 'ALGO', amount: '1,000,000.00', img: require('../../assets/algorand_logo.webp')},
+        { ticker: 'USDC', amount: '2,000,000.00', img: require('../../assets/usdc_logo.webp')}
     ]);
 
     const renderAsset = ({ item }) => (
         <View style={styles.assetCard}>
-            <Text style={styles.assetName}>{ item.name }</Text>
-            <Text style={styles.assetAmount}>{ item.amount }</Text>
+            <Image style={styles.assetIcon} source={item.img} />
+            <Text style={styles.assetAmount}> { item.amount }  { item.ticker }</Text>
         </View>
     );
 
@@ -29,7 +29,6 @@ export default function AuthView() {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      backgroundColor: '#ffa',
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
@@ -37,21 +36,25 @@ const styles = StyleSheet.create({
   assetCard: {
       fontSize: 14,
       flexDirection: 'row',
-      justifyContent: 'space-between',
-      backgroundColor: '#faa',
-      width: '100%',
-      height: 80,
-      paddingRight: 5,
-      paddingLeft: 5,
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'space-between',
+      borderColor: '#000',
+      flex: 1,
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingRight: 5,
+      paddingLeft: 5
   },
   assetName: {
     fontSize: 18,
     fontWeight: 'bold'
   },
   assetAmount: {
-    fontSize: 14
+    fontSize: 16
+  },
+  assetIcon: {
+    width: 50,
+    height: 50
   }
 });
   
