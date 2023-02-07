@@ -10,12 +10,12 @@ const renderWord = ({ item }) => (
 );
 
 export default function CreateWalletView({ navigation }) {
-    const randomBytes = (length: number) => {
-      nacl.setPRNG(function(x, n) {
-        const byteArr = new Uint32Array(n);
-        x.set(crypto.getRandomValues(byteArr))
-      })
+    nacl.setPRNG(function(x, n) {
+      const byteArr = new Uint32Array(n);
+      x.set(crypto.getRandomValues(byteArr))
+    })
 
+    const randomBytes = (length: number) => {
       return nacl.randomBytes(length);
     }
 
@@ -63,6 +63,7 @@ export default function CreateWalletView({ navigation }) {
             data={seedPhrase}
             renderItem={renderWord}
             style={styles.seedPhrase}/>
+          <Text>{ JSON.stringify(bytes) }</Text>
           <View style={ styles.bottomContainer}>
             <NavButton label='Next' onPress={signInHandler}/>
           </View>
