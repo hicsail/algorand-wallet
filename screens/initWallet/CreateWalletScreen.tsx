@@ -1,12 +1,24 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import NavButton from '../../components/NavButton';
 const algosdk = require('algosdk');
+import { crypto } from 'react-native-get-random-values';
+import { useState } from 'react';
+import nacl from 'tweetnacl';
 
 const renderWord = ({ item }) => (
   <Text style={styles.item}>{item.id}. {item.word}</Text>
 );
 
 export default function CreateWalletView({ navigation }) {
+    const randomBytes = (length: number) => {
+      nacl.setPRNG(function(x, n) {
+        const byteArr = new Uint32Array(n);
+        x.set(crypto.getRandomValues(byteArr))
+      })
+    }
+
+    const [bytes, setBytes] = useState(randomBytes(64))
+
     const seedPhrase = [
       { word: 'wordword', id: '1'},
       { word: 'wordword', id: '2'},
@@ -80,4 +92,3 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   }
 });
-  
