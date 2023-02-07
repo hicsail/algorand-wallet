@@ -15,9 +15,24 @@ export default function CreateWalletView({ navigation }) {
         const byteArr = new Uint32Array(n);
         x.set(crypto.getRandomValues(byteArr))
       })
+
+      return nacl.randomBytes(length);
     }
 
-    const [bytes, setBytes] = useState(randomBytes(64))
+    const keyPairFromSeed = (seed: Uint8Array) => {
+      return nacl.sign.keyPair.fromSeed(seed);
+    }
+
+    const keyPair = () => {
+      const seed = randomBytes(nacl.box.secretKeyLength);
+      return keyPairFromSeed(seed);
+    }
+
+    // assign as account
+    const [bytes, setBytes] = useState(keyPair());
+
+    // let account = algosdk.generateAccount();
+    // let passphrase = algosdk.secretKeyToMnemonic(account.sk);
 
     const seedPhrase = [
       { word: 'wordword', id: '1'},
@@ -33,9 +48,6 @@ export default function CreateWalletView({ navigation }) {
       { word: 'wordword', id: '11'},
       { word: 'wordword', id: '12'}
     ]
-
-    // let account = algosdk.generateAccount();
-    // let passphrase = algosdk.secretKeyToMnemonic(account.sk);
 
     const signInHandler = (view) => {
       navigation.navigate('AuthScreen');
