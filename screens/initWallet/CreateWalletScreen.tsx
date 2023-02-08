@@ -1,35 +1,14 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import NavButton from '../../components/NavButton';
 const algosdk = require('algosdk');
-import { crypto } from 'react-native-get-random-values';
 import { useState } from 'react';
-import nacl from 'tweetnacl';
 
 const renderWord = ({ item }) => (
   <Text style={styles.item}>{item.id}. {item.word}</Text>
 );
 
 export default function CreateWalletView({ navigation }) {
-    nacl.setPRNG(function(x, n) {
-      const byteArr = new Uint32Array(n);
-      x.set(crypto.getRandomValues(byteArr))
-    })
-
-    const randomBytes = (length: number) => {
-      return nacl.randomBytes(length);
-    }
-
-    const keyPairFromSeed = (seed: Uint8Array) => {
-      return nacl.sign.keyPair.fromSeed(seed);
-    }
-
-    const keyPair = () => {
-      const seed = randomBytes(nacl.box.secretKeyLength);
-      return keyPairFromSeed(seed);
-    }
-
     // assign as account
-    const [bytes, setBytes] = useState(keyPair());
 
     // let account = algosdk.generateAccount();
     // let passphrase = algosdk.secretKeyToMnemonic(account.sk);
@@ -63,7 +42,6 @@ export default function CreateWalletView({ navigation }) {
             data={seedPhrase}
             renderItem={renderWord}
             style={styles.seedPhrase}/>
-          <Text>{ JSON.stringify(bytes) }</Text>
           <View style={ styles.bottomContainer}>
             <NavButton label='Next' onPress={signInHandler}/>
           </View>
