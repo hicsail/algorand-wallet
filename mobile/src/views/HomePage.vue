@@ -8,6 +8,10 @@
                 <div class="main-content">
                   <h1>Hello Tractor</h1>
                   <p>{{ mnemonic }}</p>
+                  <h1>Public Address:</h1>
+                  <p>{{ publicAddress }}</p>
+                  <h1>Private key:</h1>
+                  <p>{{ private_key }}</p>
                 </div>
             </div>
         </ion-content>
@@ -17,12 +21,8 @@
 <script lang="ts">
 import { IonContent, IonHeader, IonPage } from '@ionic/vue';
 import { defineComponent } from 'vue';
-import * as Bip39 from 'bip39';
 import { walletStore } from '@/store/global';
-
-/* eslint-disable */
-// const CryptoJS = require('crypto-js');
-// const SHA256 = require('crypto-js/sha256');
+import * as algosdk from 'algosdk';
 
 export default defineComponent({
   name: 'HomePage',
@@ -39,17 +39,21 @@ export default defineComponent({
   },
   data() {
     return {
-      mnemonic: Bip39.generateMnemonic(),
+      mnemonic: '',
+      keypair: null,
+      master: null,
+      publicAddress: '',
+      private_key: ''
     }
   },
   methods: {
     createWallet: async function(): Promise<void> {
-        this.mnemonic = Bip39.generateMnemonic()
-        this.seed = Bip39.mnemonicToSeedSync(this.mnemonic).slice(0, 32)
+        const myaccount = algosdk.generateAccount();
+        this.mnemonic = algosdk.secretKeyToMnemonic(myaccount.sk);
+        this.publicAddress = myaccount.addr;
     }
   },
   computed: {
-    
   },
   created() {
       this.createWallet()
