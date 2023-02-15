@@ -1,0 +1,6 @@
+{
+    "/dist/background.js": "/dist/background.js",
+    "/dist/main.js": "/dist/main.js",
+    "/dist/manifest.json": "/dist/manifest.json",
+    "/dist/popup.html": "/dist/popup.html"
+}

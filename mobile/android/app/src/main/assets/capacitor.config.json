@@ -1,0 +1,6 @@
+{
+	"appId": "com.sail.wallet",
+	"appName": "algorand-wallet",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
