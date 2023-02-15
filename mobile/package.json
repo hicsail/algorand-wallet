@@ -43,6 +43,7 @@
     "@ionic/vue-router": "^6.0.0",
     "@types/chrome": "^0.0.184",
     "@types/node": "^18.0.0",
+    "algosdk": "^2.1.0",
     "assert": "^2.0.0",
     "axios": "^0.25.0",
     "base64-js": "^1.5.1",
