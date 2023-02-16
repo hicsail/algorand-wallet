@@ -23,6 +23,8 @@ import { IonContent, IonHeader, IonPage } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { walletStore } from '@/store/global';
 import * as algosdk from 'algosdk';
+import { TESTNET } from '@/utils/endpoints';
+import { XAPITOKEN } from '@/utils/api-token';
 
 export default defineComponent({
   name: 'HomePage',
@@ -51,6 +53,14 @@ export default defineComponent({
         const myaccount = algosdk.generateAccount();
         this.mnemonic = algosdk.secretKeyToMnemonic(myaccount.sk);
         this.publicAddress = myaccount.addr;
+
+        const psToken = {
+            'X-API-Key': XAPITOKEN
+        };
+        const rpcServer = TESTNET.endpoint;
+        const rpcPort = '';
+
+        const algodClient = new algosdk.Algodv2(psToken, rpcServer, rpcPort);
     }
   },
   computed: {
