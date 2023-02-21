@@ -10,8 +10,8 @@
                   <p class="copy-all">{{ mnemonic }}</p>
                   <h1>Public Address:</h1>
                   <p class="copy-all">{{ publicAddress }}</p>
-                  <h1>Private key:</h1>
-                  <p>{{ private_key }}</p>
+                  <h1>Algos</h1>
+                  <p>{{ algo_amt }}</p>
                 </div>
             </div>
         </ion-content>
@@ -45,14 +45,17 @@ export default defineComponent({
       keypair: null,
       master: null,
       publicAddress: '',
-      private_key: ''
+      private_key: '',
+      algo_amt: 10,
+      algodClient: null,
+      account: null
     }
   },
   methods: {
     createWallet: async function(): Promise<void> {
-        const myaccount = algosdk.generateAccount();
-        this.mnemonic = algosdk.secretKeyToMnemonic(myaccount.sk);
-        this.publicAddress = myaccount.addr;
+        this.account = algosdk.generateAccount();
+        this.mnemonic = algosdk.secretKeyToMnemonic(this.account.sk);
+        this.publicAddress = this.account.addr;
 
         const psToken = {
             'X-API-Key': XAPITOKEN
@@ -60,7 +63,12 @@ export default defineComponent({
         const rpcServer = TESTNET.endpoint;
         const rpcPort = '';
 
-        const algodClient = new algosdk.Algodv2(psToken, rpcServer, rpcPort);
+        this.algodClient = new algosdk.Algodv2(psToken, rpcServer, rpcPort);
+        this.algoBalance()
+    },
+    algoBalance: async function(): Promise<void> {
+      let accountInfo = await this.algodClient.accountInformation(this.account.addr).do();
+      this.algo_amt = accountInfo.amount;
     }
   },
   computed: {
