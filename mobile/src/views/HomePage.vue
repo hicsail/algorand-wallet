@@ -7,9 +7,9 @@
             <div id="container">
                 <div class="main-content">
                   <h1>Hello Tractor</h1>
-                  <p>{{ mnemonic }}</p>
+                  <p class="copy-all">{{ mnemonic }}</p>
                   <h1>Public Address:</h1>
-                  <p>{{ publicAddress }}</p>
+                  <p class="copy-all">{{ publicAddress }}</p>
                   <h1>Private key:</h1>
                   <p>{{ private_key }}</p>
                 </div>
@@ -74,6 +74,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.copy-all {
+  -webkit-user-select: all;  /* Chrome all / Safari all */
+  -moz-user-select: all;     /* Firefox all */
+  -ms-user-select: all;      /* IE 10+ */
+  user-select: all;   
+}
+
 #container {
   text-align: center;
   position: absolute;
