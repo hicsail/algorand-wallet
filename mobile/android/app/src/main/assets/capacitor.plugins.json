@@ -1,19 +1,11 @@
 [
 	{
-		"pkg": "@capacitor-community/barcode-scanner",
-		"classpath": "com.getcapacitor.community.barcodescanner.BarcodeScanner"
-	},
-	{
-		"pkg": "@capacitor-community/camera-preview",
-		"classpath": "com.ahm.capacitor.camera.preview.CameraPreview"
+		"pkg": "@capacitor-community/sqlite",
+		"classpath": "com.getcapacitor.community.database.sqlite.CapacitorSQLitePlugin"
 	},
 	{
 		"pkg": "@capacitor/app",
 		"classpath": "com.capacitorjs.plugins.app.AppPlugin"
-	},
-	{
-		"pkg": "@capacitor/camera",
-		"classpath": "com.capacitorjs.plugins.camera.CameraPlugin"
 	},
 	{
 		"pkg": "@capacitor/haptics",
@@ -28,11 +20,11 @@
 		"classpath": "com.capacitorjs.plugins.network.NetworkPlugin"
 	},
 	{
-		"pkg": "@capacitor/status-bar",
-		"classpath": "com.capacitorjs.plugins.statusbar.StatusBarPlugin"
+		"pkg": "@capacitor/preferences",
+		"classpath": "com.capacitorjs.plugins.preferences.PreferencesPlugin"
 	},
 	{
-		"pkg": "@capacitor/storage",
-		"classpath": "com.capacitorjs.plugins.storage.StoragePlugin"
+		"pkg": "@capacitor/status-bar",
+		"classpath": "com.capacitorjs.plugins.statusbar.StatusBarPlugin"
 	}
 ]
