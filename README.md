@@ -17,6 +17,8 @@ Run `npm run android`
 
 ### Updating mobile style
 
+*** To avoid having to update the Android files every time, `node_modules/`, which contains the Android files, should be committed to the repo.***
+
 Capacitor generates the mobile files under `node_modules` which is gitignored. Must manually update the mobile system style:
 
 ```
