@@ -24,7 +24,7 @@ import { defineComponent } from 'vue';
 import { walletStore } from '@/store/global';
 import * as algosdk from 'algosdk';
 import { TESTNET } from '@/utils/endpoints';
-import { XAPITOKEN } from '@/utils/api-token';
+import { XAPITOKEN } from '@/utils/apiToken';
 
 export default defineComponent({
   name: 'HomePage',

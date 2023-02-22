@@ -1,4 +1,4 @@
-import { Storage } from '@capacitor/storage';
+import { Preferences } from '@capacitor/preferences';
 
 /*
 inputs:
@@ -10,7 +10,7 @@ export async function set(values: Record<string, any>): Promise<void> {
     }
 
     for(const key in values) {
-        Storage.set({
+        Preferences.set({
             key: stringify(key),
             value: stringify(values[key])
         });
@@ -31,7 +31,7 @@ export async function get(keys: Array<string> | string): Promise<Record<string, 
         const results: Record<string, string> = {}
 
         for(let i = 0; i < keys.length; i++) {
-            const { value } = (await Storage.get({key: keys[i]}))
+            const { value } = (await Preferences.get({key: keys[i]}))
 
             // optimistically gets all values
             if(value) {
@@ -42,7 +42,7 @@ export async function get(keys: Array<string> | string): Promise<Record<string, 
         return results
     }
     else {
-        const { value } = await Storage.get({key: keys})
+        const { value } = await Preferences.get({key: keys})
         return value ? JSON.parse(value) : {}
     }
 }
@@ -55,11 +55,11 @@ keys (Array<string> | string) Array of keys or single string key to remove
 export async function remove(keys: Array<string> | string): Promise<void> {
     if(keys instanceof Array) {
         for(let i=0; i < keys.length; i++) {
-            Storage.remove({ key: keys[i] })
+            Preferences.remove({ key: keys[i] })
         }
     }
     else {
-        Storage.remove({ key: keys})
+        Preferences.remove({ key: keys})
     }
 }
 
@@ -68,5 +68,5 @@ export async function remove(keys: Array<string> | string): Promise<void> {
 Clear Capacitor Storage
  */
 export async function clear(): Promise<void> {
-    Storage.clear()
+    Preferences.clear()
 }

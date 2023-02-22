@@ -8,7 +8,7 @@
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { App } from '@capacitor/app';
-import * as storage from '@/utils/capacitor-storage';
+import * as storage from '@/utils/capacitorStorage';
 import { walletStore } from '@/store/global';
 
 export default defineComponent({
